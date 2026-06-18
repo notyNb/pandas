@@ -1,0 +1,10 @@
+customer_id,customer_name,email,city,state,signup_date
+C001,Ana Silva,ANA.SILVA@email.com,Sao Paulo,sao paulo,2023-01-15
+C002,bruno costa,bruno.costa@email.com,Rio de Janeiro,RJ,2023-02-08
+C003,Carla Mendes,,Belo Horizonte,Minas Gerais,2023-03-21
+C004,Diego Rocha,diego.rocha@email.com,Curitiba,PR,invalid-date
+C005,Eduarda Lima,eduarda.lima@email.com,Salvador,Bahia,2023-04-10
+C006,Fernando Alves,fernando.alves@email.com,Sao Paulo,SP,2023-05-01
+C006,Fernando Alves,fernando.alves@newmail.com,Sao Paulo,SP,2023-05-02
+,Cliente Sem Id,missing@email.com,Sao Paulo,SP,2023-05-10
+C007,  gabi martins  ,GABI.MARTINS@email.com, rio de janeiro ,rj,2023-06-12

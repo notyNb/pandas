@@ -1,0 +1,10 @@
+product_id,product_name,category,unit_cost
+P001,Notebook Essencial,Eletronicos,1850.00
+P002,Mouse Sem Fio,Acessorios,35.50
+P003,Teclado Mecânico,Acessorios,120.00
+P004,Cadeira Ergonomica,Moveis,430.00
+P005,Monitor 24 Polegadas,Eletronicos,620.00
+P006,Headset Pro,Acessorios,89.90
+P006,Headset Pro,Acessorios,92.00
+P007,Webcam Full HD,Eletronicos,
+P008,Produto Inválido,Outros,-10
