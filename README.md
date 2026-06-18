@@ -143,6 +143,16 @@ pytest
 
 Os testes cobrem regras de transformação, remoção de duplicidade, padronização e cálculo de receita.
 
+## Publicando No GitHub
+
+Depois de criar um repositório vazio no GitHub:
+
+```bash
+git remote add origin https://github.com/seu-usuario/retail-analytics-pipeline.git
+git branch -M main
+git push -u origin main
+```
+
 ## Próximos Passos Possíveis
 
 - Orquestrar o pipeline com Airflow ou Prefect.
