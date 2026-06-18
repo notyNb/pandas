@@ -31,7 +31,7 @@ def transform_customers(customers: pd.DataFrame) -> pd.DataFrame:
     df = df.dropna(subset=["customer_id"])
     df["customer_id"] = _clean_text(df["customer_id"]).str.upper()
     df["customer_name"] = _title(df["customer_name"]).fillna("Unknown")
-    df["email"] = _clean_text(df["email"]).str.lower()
+    df["email"] = _clean_text(df["email"]).str.lower().fillna("unknown")
     df["city"] = _title(df["city"]).fillna("Unknown")
     df["state"] = (
         _clean_text(df["state"])
@@ -43,7 +43,9 @@ def transform_customers(customers: pd.DataFrame) -> pd.DataFrame:
     df["signup_date"] = df["signup_date"].fillna(pd.Timestamp("2023-01-01"))
 
     df = df.drop_duplicates(subset=["customer_id"], keep="last")
-    return df[["customer_id", "customer_name", "email", "city", "state", "signup_date"]]
+    return df[
+        ["customer_id", "customer_name", "email", "city", "state", "signup_date"]
+    ].reset_index(drop=True)
 
 
 def transform_products(products: pd.DataFrame) -> pd.DataFrame:
@@ -58,7 +60,7 @@ def transform_products(products: pd.DataFrame) -> pd.DataFrame:
     df = df[df["unit_cost"] >= 0]
 
     df = df.drop_duplicates(subset=["product_id"], keep="last")
-    return df[["product_id", "product_name", "category", "unit_cost"]]
+    return df[["product_id", "product_name", "category", "unit_cost"]].reset_index(drop=True)
 
 
 def transform_orders(orders: pd.DataFrame) -> pd.DataFrame:
@@ -84,6 +86,9 @@ def transform_orders(orders: pd.DataFrame) -> pd.DataFrame:
     df["gross_revenue"] = df["quantity"] * df["unit_price"]
     df["discount_amount"] = df["gross_revenue"] * df["discount_pct"]
     df["net_revenue"] = df["gross_revenue"] - df["discount_amount"]
+    df[["gross_revenue", "discount_amount", "net_revenue"]] = df[
+        ["gross_revenue", "discount_amount", "net_revenue"]
+    ].round(2)
 
     return df[
         [
@@ -99,7 +104,7 @@ def transform_orders(orders: pd.DataFrame) -> pd.DataFrame:
             "discount_amount",
             "net_revenue",
         ]
-    ]
+    ].reset_index(drop=True)
 
 
 def build_analytics_model(raw: dict[str, pd.DataFrame]) -> dict[str, pd.DataFrame]:
@@ -109,6 +114,7 @@ def build_analytics_model(raw: dict[str, pd.DataFrame]) -> dict[str, pd.DataFram
 
     orders = orders[orders["customer_id"].isin(customers["customer_id"])]
     orders = orders[orders["product_id"].isin(products["product_id"])]
+    orders = orders.reset_index(drop=True)
 
     return {
         "dim_customers": customers,
