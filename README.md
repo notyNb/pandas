@@ -4,7 +4,7 @@ Projeto pessoal de engenharia de dados para importar, limpar, transformar, armaz
 
 O objetivo é demonstrar um fluxo completo e reprodutível: dados brutos em CSV entram na camada `data/raw`, passam por validações e transformações com Pandas, são carregados em um banco SQL e geram relatórios analíticos prontos para consumo.
 
-## Por Que Este Projeto Chama Atenção
+## Principais Funções
 
 - Pipeline funcional de ponta a ponta, com execução por linha de comando.
 - Dados brutos com problemas reais: nulos, duplicidades, textos fora de padrão, status inconsistentes e valores inválidos.
@@ -143,24 +143,3 @@ pytest
 
 Os testes cobrem regras de transformação, remoção de duplicidade, padronização e cálculo de receita.
 
-## Publicando No GitHub
-
-Depois de criar um repositório vazio no GitHub:
-
-```bash
-git remote add origin https://github.com/seu-usuario/retail-analytics-pipeline.git
-git branch -M main
-git push -u origin main
-```
-
-## Próximos Passos Possíveis
-
-- Orquestrar o pipeline com Airflow ou Prefect.
-- Criar dashboard em Power BI, Metabase ou Streamlit.
-- Adicionar validação com Great Expectations.
-- Publicar a base PostgreSQL em Docker Compose.
-- Criar camada incremental com controle de watermark.
-
-## Competências Demonstradas
-
-Python, Pandas, SQL, modelagem dimensional, qualidade de dados, ETL, PostgreSQL, SQLite, Git, testes automatizados e documentação técnica.
